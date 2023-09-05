@@ -5,3 +5,15 @@ two players choose number between
 win only if you win 3 rounds 
 score added will be the difference between  you and your opponent if your opponent won 2 rounds and you 3 the score added to your international ranking is 1 
 my goal is to create my first game on the broswer
+
+
+
+-----
+full screen button and install will both disppear when you install the app since the pwa is not standalone ti's full screen
+no 404 page instead redirect it to the main page
+robot.txt and error page 
+--code i may use 
+$:score ||score2 , randomAgain()
+function randomAgain(){
+    random=Math.floor(Math.random() * 5)+1
+}
