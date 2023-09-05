@@ -1,0 +1,7 @@
+the game is simple 
+two players choose even or odd 
+two players choose number between 
+1 and 5 
+win only if you win 3 rounds 
+score added will be the difference between  you and your opponent if your opponent won 2 rounds and you 3 the score added to your international ranking is 1 
+my goal is to create my first game on the broswer
