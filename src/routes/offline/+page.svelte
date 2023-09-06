@@ -88,11 +88,10 @@ function checkandupdate(){
     let sum=0
     if (score==3){
         sum=score-score2
-        if(myscore!=0){
 
         myscore=myscore+sum
         db.scores.update(6, { score: myscore})
-        }
+        
         if(scoredb2!=0){
 
         scoredb2=scoredb2-sum
@@ -104,10 +103,9 @@ function checkandupdate(){
         myscore=myscore-sum
         db.scores.update(6, { score: myscore})
         }
-        if(scoredb2!=0){
         scoredb2=scoredb2+sum
         db.scores.update(randomId, { score: scoredb2 })
-        }
+        
        
         
 
