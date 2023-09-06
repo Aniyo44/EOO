@@ -9,8 +9,7 @@ function reveal(){
 <h1>Even or Odd</h1>
 {#if show}
 <a href="/offline">offline</a>
-<button>online</button>
-<button>play with friend</button>
+<a href="/online">online</a>
 {:else}
 <button on:click={reveal}>Play</button>
 {/if}

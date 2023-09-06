@@ -1,18 +1,43 @@
 <script lang="ts">
+    import { db } from "../../database/db";
+    import { onMount } from "svelte";
 let modeChoice:string=""
 let numberChoice:number=1
 let random:number=0
+let myname:string=""
+let name:string=""
+let myscore:number=0
+let scoredb2:number=0
 let thridScreen:boolean=false
 let numberScreen:boolean=false
-
+let randomId:number=Math.floor(Math.random()*5)+1
+console.log(randomId)
 let winner:boolean=false
 let round:number=1
 let score:number=0
 let score2:number=0
+async function fetch(){
+    try {
+     const data = await db.scores.get(6);
+     const data2 = await db.scores.get(randomId);
 
+    if (data) {
+      myname = data.name; 
+      myscore =data.score
+    }
+    if (data2) {
+      name = data2.name; 
+      scoredb2 =data2.score
+    }  
+  } catch (error) {
+    console.error("Error fetching idea:", error);
+    
+  }
+}
 function changeMode(s:string){
     modeChoice=s
     numberScreen=true
+    fetch()
 }
 function changeNumber(n:number){
     numberChoice=n
@@ -20,6 +45,13 @@ function changeNumber(n:number){
     numberScreen=false
     random=Math.floor(Math.random() * 5)+1
     check()
+    setTimeout(next, 3000); // 5000 milliseconds = 5 seconds
+    if(score===3||score2===3){
+    checkandupdate()
+   }
+
+
+
 }
 function next(){
     thridScreen=false
@@ -47,15 +79,49 @@ function restart(){
  round=1
  score=0
  score2=0
+ randomId=Math.floor(Math.random()*5)+1
+
 
 }
 
+function checkandupdate(){
+    let sum=0
+    if (score==3){
+        sum=score-score2
+        if(myscore!=0){
+
+        myscore=myscore+sum
+        db.scores.update(6, { score: myscore})
+        }
+        if(scoredb2!=0){
+
+        scoredb2=scoredb2-sum
+        db.scores.update(randomId, { score: scoredb2 })
+        }
+    }else{
+        sum=score2-score
+        if(myscore!=0){
+        myscore=myscore-sum
+        db.scores.update(6, { score: myscore})
+        }
+        if(scoredb2!=0){
+        scoredb2=scoredb2+sum
+        db.scores.update(randomId, { score: scoredb2 })
+        }
+       
+        
+
+    }
+}
 </script>
 <div class="flex justify-center items-center flex-col">
     <!-- the last screen the one with won or lost the game-->
+    
 
 {#if score ===3 || score2 ===3}
 <p>last round </p>
+<p>blue side:{myname}</p>
+    <p>red side: {name}</p>
 <p>{modeChoice}</p>
 <p>{numberChoice}</p>
 <p>{random}</p>
@@ -66,12 +132,16 @@ function restart(){
 {:else}
 <p>red side win</p>
 {/if}
+<p>your total score:{myscore}</p>
+<p>{name} total score:{scoredb2}</p>
 <button on:click={restart}>Restart</button>
 <!-- thrid screen the one with the lost or won the round -->
 {:else}
 {#if thridScreen}
 <p>Round:{round}</p>
     {#if winner}
+    <p>blue side:{myname}</p>
+    <p>red side: {name}</p>
     <p>{modeChoice}</p>
 
       <p>You're a Winner!</p>
@@ -87,9 +157,10 @@ function restart(){
       {#if score>0||score2>0}
       <p>blue:{score} vs red:{score2}</p>
       {/if}
-      <button on:click={next}>go next round</button>
 
     {:else}
+    <p>blue side:{myname}</p>
+    <p>red side: {name}</p>
     <p>{modeChoice}</p>
 
       <p>Sorry, You Lost.</p>
@@ -105,13 +176,14 @@ function restart(){
       <p>blue:{score} vs red:{score2}</p>
       {/if}
 
-      <button on:click={next}>go next round</button>
 
 
     {/if}
     <!-- second screen the one with numbers and we keep looping over it -->
   {:else}
- {#if modeChoice.length >0 && numberScreen}   
+ {#if modeChoice.length >0 && numberScreen}  
+ <p>blue side:{myname}</p>
+    <p>red side: {name}</p> 
  <p>{modeChoice}</p>
  {#if score>0||score2>0}
  <p>blue:{score} vs red:{score2}</p>
