@@ -10,7 +10,7 @@ let myscore:number=0
 let scoredb2:number=0
 let thridScreen:boolean=false
 let numberScreen:boolean=false
-let randomId:number=Math.floor(Math.random()*5)+1
+let randomId:number=0
 let winner:boolean=false
 let round:number=1
 let score:number=0
@@ -37,6 +37,7 @@ async function fetch(){
 function changeMode(s:string){
     modeChoice=s
     numberScreen=true
+    randomId=Math.floor(Math.random()*5)+1
     fetch()
 }
 function changeNumber(n:number){
@@ -79,7 +80,6 @@ function restart(){
  round=1
  score=0
  score2=0
- randomId=Math.floor(Math.random()*5)+1
  gameover=false
 
 
