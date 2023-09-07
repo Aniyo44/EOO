@@ -11,11 +11,11 @@ let scoredb2:number=0
 let thridScreen:boolean=false
 let numberScreen:boolean=false
 let randomId:number=Math.floor(Math.random()*5)+1
-console.log(randomId)
 let winner:boolean=false
 let round:number=1
 let score:number=0
 let score2:number=0
+let gameover:boolean=false
 async function fetch(){
     try {
      const data = await db.scores.get(6);
@@ -47,7 +47,7 @@ function changeNumber(n:number){
     check()
     setTimeout(next, 3000); // 5000 milliseconds = 5 seconds
     if(score===3||score2===3){
-    checkandupdate()
+        setTimeout(checkandupdate, 3000); // 5000 milliseconds = 5 seconds
    }
 
 
@@ -80,6 +80,7 @@ function restart(){
  score=0
  score2=0
  randomId=Math.floor(Math.random()*5)+1
+ gameover=false
 
 
 }
@@ -90,6 +91,7 @@ function checkandupdate(){
         sum=score-score2
 
         myscore=myscore+sum
+        console.log(myscore)
         db.scores.update(6, { score: myscore})
         
         if(scoredb2!=0){
@@ -110,21 +112,20 @@ function checkandupdate(){
         
 
     }
+    gameover= true;
+
 }
 </script>
 <div class="flex justify-center items-center flex-col">
     <!-- the last screen the one with won or lost the game-->
     
 
-{#if score ===3 || score2 ===3}
-<p>last round </p>
-<p>blue side:{myname}</p>
-    <p>red side: {name}</p>
+{#if gameover}
+
 <p>{modeChoice}</p>
-<p>{numberChoice}</p>
-<p>{random}</p>
+
 <p>game over</p>
-<p>blue :{score} vs red: {score2}</p>
+<p>{myname} :{score} vs {name}: {score2}</p>
 {#if score===3}
 <p>blue side win</p>
 {:else}
