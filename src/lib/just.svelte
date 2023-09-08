@@ -2,15 +2,15 @@
 <script>
     import { liveQuery } from "dexie";
     import { db } from "../database/db";
-    let friends = liveQuery(
+    let scores = liveQuery(
       () => db.scores.toArray()
     );
   
   </script>
   <ul>
-    {#if $friends}
-      {#each $friends as friend (friend.id)}
-        <li>{friend.name}, {friend.score}</li>
+    {#if $scores}
+      {#each $scores as score (score.id)}
+        <li>{score.name}, {score.score}</li>
       {/each}
     {/if}
   </ul>

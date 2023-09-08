@@ -1,6 +1,5 @@
 <script lang="ts">
     import { db } from "../../database/db";
-    import { onMount } from "svelte";
 let modeChoice:string=""
 let numberChoice:number=1
 let random:number=0
@@ -127,9 +126,9 @@ function checkandupdate(){
 <p>game over</p>
 <p>{myname} :{score} vs {name}: {score2}</p>
 {#if score===3}
-<p>blue side win</p>
+<p>{myname} win</p>
 {:else}
-<p>red side win</p>
+<p>{name} win</p>
 {/if}
 <p>your total score:{myscore}</p>
 <p>{name} total score:{scoredb2}</p>

@@ -2,11 +2,11 @@
     "name": "Even Or Odd",
     "short_name": "Even OR Odd",
     "scope": "/",
-    "theme_color": "#fff",
+    "theme_color": "#8ECAE6",
     "start_url": "/",
 
     "display": "fullscreen",
-    "background_color": "#fff",
+    "background_color": "#8ECAE6",
     "description": "game of even or odd",
     "icons": [
         {
