@@ -37,10 +37,8 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 </div>
 <div class="absolute bottom-16  right-1/2 translate-x-1/2 ">
     <div>
-    <button class="animate-bounce text-white p-2 rounded text-5xl animated-border 
-    bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-400 to-indigo-900">install</button>
+      <Install/>
 </div>
 </div>
 
 
-<Install/>

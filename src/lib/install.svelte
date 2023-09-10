@@ -1,15 +1,22 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
   
     let deferredPrompt:any;
   
+    // Add the event listener onMount
     onMount(() => {
-      window.addEventListener('beforeinstallprompt', (e) => {
+      const beforeInstallPromptHandler = (e:any) => {
         deferredPrompt = e;
+      };
+      window.addEventListener('beforeinstallprompt', beforeInstallPromptHandler);
+  
+      // Remove the event listener onDestroy
+      onDestroy(() => {
+        window.removeEventListener('beforeinstallprompt', beforeInstallPromptHandler);
       });
     });
+  
     $: showInstallButton = !!deferredPrompt;
-
   
     const installApp = async () => {
       if (deferredPrompt !== null) {
@@ -24,7 +31,8 @@
   
   <div>
     {#if showInstallButton}
-    <button on:click={installApp}>Install App</button>
-{/if}
+    <button class="animate-bounce text-white p-2 rounded text-5xl animated-border 
+    bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-400 to-indigo-900" on:click={installApp}>Install App</button>
+    {/if}
   </div>
   
