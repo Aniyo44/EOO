@@ -1,6 +1,45 @@
 <script lang="ts">
 import full_left from "../images/right-four.webp"
 let show:boolean=false
+let deferredPrompt:any;
+
+        // Listen for the beforeinstallprompt event
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            showInstallButton();
+        });
+
+        // Show the install button
+        function showInstallButton() {
+            const installButton:any = document.getElementById('installButton');
+            installButton.style.display = 'block';
+            installButton.addEventListener('click', () => {
+                hideInstallButton();
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult:any) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        }
+
+        // Hide the install button
+        function hideInstallButton() {
+            const installButton:any = document.getElementById('installButton');
+            installButton.style.display = 'none';
+        }
+
+        // Detect when the PWA was successfully installed
+        window.addEventListener('appinstalled', () => {
+            hideInstallButton();
+            deferredPrompt = null;
+            console.log('PWA was installed');
+        });
 
 
 function reveal(){
@@ -42,4 +81,4 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 </div>
 
 
-<button id="install-app " class="hidden" >I</button>
+<button id="installButton">Install App</button>
