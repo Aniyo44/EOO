@@ -8,6 +8,8 @@
         deferredPrompt = e;
       });
     });
+    $: showInstallButton = !!deferredPrompt;
+
   
     const installApp = async () => {
       if (deferredPrompt !== null) {
@@ -21,6 +23,8 @@
   </script>
   
   <div>
+    {#if showInstallButton}
     <button on:click={installApp}>Install App</button>
+{/if}
   </div>
   
