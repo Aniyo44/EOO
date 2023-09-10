@@ -1,6 +1,6 @@
 <!-- InstallPrompt.svelte -->
-<script>
-    let deferredPrompt;
+<script lang="ts">
+    let deferredPrompt:any;
 
     // Listen for the beforeinstallprompt event
     window.addEventListener('beforeinstallprompt', (e) => {
@@ -15,7 +15,7 @@
     function installApp() {
         if (deferredPrompt) {
             deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
+            deferredPrompt.userChoice.then((choiceResult:any) => {
                 if (choiceResult.outcome === 'accepted') {
                     console.log('User accepted the install prompt');
                 } else {
