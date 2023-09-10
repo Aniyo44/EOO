@@ -132,7 +132,10 @@ function checkandupdate(){
 {/if}
 <p>your total score:{myscore}</p>
 <p>{name} total score:{scoredb2}</p>
-<button on:click={restart}>Restart</button>
+<button class="text-white border-2 
+bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
+ from-gray-300 via-fuchsia-600 to-orange-600 border-gray-500
+  p-2 rounded-full"on:click={restart}>Restart</button>
 <!-- thrid screen the one with the lost or won the round -->
 {:else}
 {#if thridScreen}

@@ -1,7 +1,8 @@
 <script>
     import "../tailwind.css";
   </script>
-  <main> 
+  <main style="background: var(--custom-gradient);" class="min-h-screen" > 
+
     <nav>
 <div>mascot of wonrof</div>
 <div>logo</div>
@@ -9,9 +10,6 @@
 
     </nav> 
   <slot />
-  <footer>
-    <div>about</div>
-    <div>install</div>
-  </footer>
+ 
 </main>
   
