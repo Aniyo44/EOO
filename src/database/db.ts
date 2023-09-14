@@ -37,7 +37,7 @@ export class MySubClassedDexie extends Dexie {
             { score: 60, name: 'Flynn' },
             { score: 20, name: 'Mushu' },
             { score: 90, name: 'Elsa' },
-            {score:40,name:"you"}
+            {score:40,name:"me"}
 
           ]);
         }
