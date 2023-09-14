@@ -1,6 +1,7 @@
 <script lang="ts">
     import { db } from "../../database/db";
 let modeChoice:string=""
+let otherChoice:string=""
 let numberChoice:number=1
 let random:number=0
 let myname:string=""
@@ -35,6 +36,11 @@ async function fetch(){
 }
 function changeMode(s:string){
     modeChoice=s
+    if(s==="even"){
+      otherChoice="odd"
+    }else{
+      otherChoice="even"
+    }
     numberScreen=true
     randomId=Math.floor(Math.random()*5)+1
     fetch()
@@ -186,6 +192,7 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
  <p>blue side:{myname}</p>
     <p>red side: {name}</p> 
  <p>{modeChoice}</p>
+ <p>{otherChoice}</p>
  {#if score>0||score2>0}
  <p>blue:{score} vs red:{score2}</p>
  {/if}
@@ -200,11 +207,15 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
  </div>
 {:else}
 <!-- the first screen where you choose even or odd it pop up once -->
-<p>choose</p>
- <div class="flex flex-row space-x-2">
-<button on:click={()=>changeMode("even")} >Even</button>
-<button on:click={()=>changeMode("odd")} >Odd</button>
+ <div class="flex flex-row space-x-2 mt-64">
+<button class="text-white text-3xl border-2 
+bg-gradient-to-r from-rose-600 via-fuchsia-500 to-indigo-400 border-gray-500
+  p-3 rounded-full" on:click={()=>changeMode("even")} >Even</button>
+<button class="text-white border-2 
+bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-600 border-gray-500
+  p-3 text-3xl rounded-full" on:click={()=>changeMode("odd")} >Odd</button>
 </div>
+
 {/if}
 {/if}
 {/if}
