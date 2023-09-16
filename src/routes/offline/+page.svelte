@@ -18,6 +18,8 @@
    import three_right from "../../images/right-three.webp"
    import four_right from "../../images/right-four.webp"
    import five_right from "../../images/right-five.webp"
+   import happy from "../../images/Goodies Face Happy.png"
+   import sad from "../../images/Goodies Face Sad.png"
 
 
 
@@ -110,7 +112,6 @@ function next(){
 function check(){
     const sum=numberChoice+random
     if((modeChoice==="even"&& sum % 2 === 0)||(modeChoice==="odd"&& sum % 2 !== 0)){
-        winner=true
         score ++
     }else{
         score2 ++
@@ -136,6 +137,8 @@ function restart(){
 function checkandupdate(){
     let sum=0
     if (score==3){
+      winner=true
+
         sum=score-score2
 
         myscore=myscore+sum
@@ -171,30 +174,42 @@ function checkandupdate(){
 {#if gameover}
 <Board blue_side={myname} showRound={false} choice={modeChoice}  otherChoice={otherChoice} score={score} score2={score2} red_side={name}/>
 
-<div class="justify-center  mt-5 
+<div class="justify-center   mt-5 
 flex flex-col   items-center">
 {#if score===3}
 <p class="text-white bg-yellow-400 p-2">{myname} win</p>
 {:else}
 <p class="text-white bg-yellow-400 p-2">{name} win</p>
 {/if}
+<div class="flex justify-center items-center mt-5">
+  {#if winner}
+<img src={happy} alt="happy goodie"/>
+  {:else}
+  <img src={sad} alt="sad goodie"/>
+  {/if}
+  </div>
 <div class="flex flex-col p-4 mt-3 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400
 text-white ">
 <div class="flex flex-row space-x-2">
-  <p class="text-gray-600 font-light italic" >your total score:{myscore}</p>
-  <p class={(score-score2 >0 ?'text-white':'text-red-500')}>{score-score2 >0 ?'+':''}{score-score2}</p>
+  <p class="text-gray-600 font-light italic" >your score:{myscore}</p>
+  <p class={(score-score2 >0 ?'text-white text-2xl':'text-rose-700 text-3xl')}>{score-score2 >0 ?'+':''}{score-score2}</p>
 
 </div>
 <div class="flex flex-row space-x-2 mt-10">
-  <p class="text-gray-600 font-light italic">{name} total score:{scoredb2}</p>
+  <p class="text-gray-600 font-light italic">{name} score:{scoredb2}</p>
 
-  <p class={(score2-score >0 ?'text-white':'text-red-500')}>{score2-score >0 ?'+':''}{score2-score}</p>
+  <p class={(score2-score >0 ?'text-white text-2xl':'text-indigo-700 text-3xl')}>{score2-score >0 ?'+':''}{score2-score}</p>
 </div>
 </div>
-<button class="text-white border-2 mt-20 text-3xl
+
+<button class="text-white border-2 mt-5 text-3xl
 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
  from-gray-300 via-fuchsia-600 to-orange-600 border-gray-500
   p-2 rounded-full"on:click={restart}>Restart</button>
+  <a href="/records" style="background: var(--custom-gradient);" class="mt-10 text-2xl text-white
+ border-2 
+ border-gray-500
+  p-1 rounded-full">records</a>
 </div>
 
 <!-- thrid screen the one with the lost or won the round -->
@@ -212,6 +227,7 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
           <img class="w-40 scale-75" src={rightImages[random-1]} alt="right hand result"/>
         </div>
     </div>
+    
 
 
      
