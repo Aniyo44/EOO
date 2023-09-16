@@ -18,12 +18,12 @@
 
   
 </div>
-<div class="absolute top-9 right-0">
+<div class="absolute top-9 right-9">
   <button on:click={sound_no_sound}>
     {#if sound}
-    <img class="w-16 h-16" src={sound_img} alt="sound-button">
+    <img class="w-6 h-6" src={sound_img} alt="sound-button">
   {:else}
-  <img  class="w-16 h-16" src={no_sound} alt="no_sound-button"/>
+  <img  class="w-6 h-6" src={no_sound} alt="no_sound-button"/>
   {/if}
   </button>
 </div>

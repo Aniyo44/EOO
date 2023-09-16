@@ -18,6 +18,9 @@
       #5ffbf1
     );
   }
+  .scale{
+    transform: scale(1,5);
+  }
   .animated-border{
     border: 3px solid transparent;
 

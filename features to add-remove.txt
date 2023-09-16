@@ -1,0 +1,13 @@
+to add:
+screen "player name mode vs other player with mode"
+
+a board with blue red smoke that go up and down with score for example blue 3-0 red it's complety blue 
+3-2 it's 60% blue 40% red 
+2-2 40% both empty 20% 
+3-1 25% red 75% blue
+
+
+settings page 
+
+customzing color at least for online 
+ 
