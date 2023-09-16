@@ -33,16 +33,17 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
  border-2 
  border-gray-500
   p-1 rounded-full">records</a>
-{/if}
-
-
-
-</div>
-<div class="absolute bottom-1  right-1/2 translate-x-1/2 ">
+  <div class="absolute bottom-1  right-1/2 translate-x-1/2 ">
     <div>
       <Install/>
       
 </div>
 </div>
+{/if}
+
+
+
+</div>
+
 
 
