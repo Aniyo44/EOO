@@ -185,7 +185,7 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
   p-2 rounded-full"on:click={restart}>Restart</button>
   </div>
   <div class="justify-center flex">
-  <a href="/records" style="background: var(--custom-gradient);" class="mt-10 text-2xl text-white
+  <a href="/records" style="background: var(--custom-gradient);" class="text-2xl mt-2 text-white
  border-2 
  border-gray-500
   p-2 rounded-full ">records</a>
