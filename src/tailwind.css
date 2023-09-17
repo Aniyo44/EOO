@@ -34,3 +34,61 @@ body{
 span{
   font-family: Arial, Helvetica, sans-serif;
 }
+.animate1{
+  animation:   moveDownUp 1s ease-out ;
+
+}
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+}
+20% {
+    transform: translateY(20px); /* Adjust the distance it moves up and down */
+}
+40% {
+  transform: translateY(0px); /* Adjust the distance it moves up and down */
+}
+60% {
+transform: translateY(-20px); /* Adjust the distance it moves up and down */
+}
+100% {
+    transform: translateY(0);
+}
+}
+.animate2{
+  animation:moveUpDown 1s ease-out ;
+
+}
+@keyframes moveDownUp {
+  0% {
+      transform: translateY(0);
+  }
+  20% {
+      transform: translateY(-20px); /* Adjust the distance it moves up and down */
+  }
+  40% {
+    transform: translateY(0px); /* Adjust the distance it moves up and down */
+}
+60% {
+  transform: translateY(20px); /* Adjust the distance it moves up and down */
+}
+  100% {
+      transform: translateY(0);
+  }
+}
+
+/* Media query for landscape orientation (width > height) */
+@media screen and (orientation: landscape) {
+  /* Add your landscape-specific styles here */
+  .portrait-only {
+    display: none;
+  }
+}
+
+/* Media query for portrait orientation (height > width) */
+@media screen and (orientation: portrait) {
+  /* Add your portrait-specific styles here */
+  .landscape-only {
+    display: none;
+  }
+}

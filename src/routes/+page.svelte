@@ -10,9 +10,11 @@ function reveal(){
 
 </script>
 
-<div class="flex justify-center items-center flex-col mt-7">
+<div class="flex justify-center items-center flex-col ">
 {#if show}
-<div class="flex flex-row space-x-2 mt-60">
+<div class="flex  min-h-screen justify-center items-center ">
+
+<div class="flex flex-row space-x-2 ">
 <a href="/offline" class="text-white text-3xl border-2 
 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
  from-amber-200 via-violet-600 to-sky-900 border-gray-500
@@ -22,6 +24,8 @@ bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
  from-amber-200 via-violet-600 to-sky-900 border-gray-500
   p-3 text-3xl rounded-full">online</a>
 </div>
+</div>
+
 {:else}
 <div class="flex  justify-center mt-5"><img class="w-30 h-36" src={logo} alt="even or odd logo"/>
 </div>

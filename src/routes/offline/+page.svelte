@@ -20,6 +20,7 @@
    import five_right from "../../images/right-five.webp"
    import happy from "../../images/Goodies Face Happy.png"
    import sad from "../../images/Goodies Face Sad.png"
+	import Final from "$lib/final.svelte";
 
 
 
@@ -93,7 +94,7 @@ function changeNumber(n:number){
    
     random=Math.floor(Math.random() * 5)+1
     thumbsDonw=true
-   setTimeout(waitingTonext,1000)
+   setTimeout(waitingTonext,1100)
   }
 
 
@@ -172,45 +173,25 @@ function checkandupdate(){
     
 
 {#if gameover}
+
 <Board blue_side={myname} showRound={false} choice={modeChoice}  otherChoice={otherChoice} score={score} score2={score2} red_side={name}/>
 
-<div class="justify-center   mt-5 
-flex flex-col   items-center">
-{#if score===3}
-<p class="text-white bg-yellow-400 p-2">{myname} win</p>
-{:else}
-<p class="text-white bg-yellow-400 p-2">{name} win</p>
-{/if}
-<div class="flex justify-center items-center mt-5">
-  {#if winner}
-<img src={happy} alt="happy goodie"/>
-  {:else}
-  <img src={sad} alt="sad goodie"/>
-  {/if}
-  </div>
-<div class="flex flex-col p-4 mt-3 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400
-text-white ">
-<div class="flex flex-row space-x-2">
-  <p class="text-gray-600 font-light italic" >your score:{myscore}</p>
-  <p class={(score-score2 >0 ?'text-white text-2xl':'text-rose-700 text-3xl')}>{score-score2 >0 ?'+':''}{score-score2}</p>
-
-</div>
-<div class="flex flex-row space-x-2 mt-10">
-  <p class="text-gray-600 font-light italic">{name} score:{scoredb2}</p>
-
-  <p class={(score2-score >0 ?'text-white text-2xl':'text-indigo-700 text-3xl')}>{score2-score >0 ?'+':''}{score2-score}</p>
-</div>
-</div>
-
+<Final winner={winner} score={score} name={name} myname={myname} score2={score2} myscore={myscore} scoredb2={scoredb2} />
+<div class="flex justify-center  flex-col">
+  <div class="flex justify-center">
 <button class="text-white border-2 mt-5 text-3xl
 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
  from-gray-300 via-fuchsia-600 to-orange-600 border-gray-500
   p-2 rounded-full"on:click={restart}>Restart</button>
+  </div>
+  <div class="justify-center flex">
   <a href="/records" style="background: var(--custom-gradient);" class="mt-10 text-2xl text-white
  border-2 
  border-gray-500
-  p-1 rounded-full">records</a>
-</div>
+  p-2 rounded-full ">records</a>
+  </div>
+  </div>
+
 
 <!-- thrid screen the one with the lost or won the round -->
 {:else}
@@ -219,12 +200,12 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 
 
 
-    <div class="flex justify-center flex-row space-x-5 mt-20"> 
+    <div class="flex justify-center flex-row items-center mt-20 space-x-7"> 
       <div>
-          <img class="w-40 scale-75"  src={leftImages[numberChoice-1]} alt="left hand result"/>
+          <img class="w-28"  src={leftImages[numberChoice-1]} alt="left hand result"/>
         </div>
       <div>
-          <img class="w-40 scale-75" src={rightImages[random-1]} alt="right hand result"/>
+          <img class="w-28" src={rightImages[random-1]} alt="right hand result"/>
         </div>
     </div>
     
@@ -241,18 +222,18 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 
  <Board blue_side={myname} choice={modeChoice} round={round} otherChoice={otherChoice} score={score} score2={score2} red_side={name}/>
  {#if thumbsDonw}
- <div class="flex justify-center flex-row items-center mt-20">
-  <div>
-  <img class="w-40 scale-75"  src={full_left} alt="closed left hand"/>
+ <div class="flex justify-center flex-row items-center mt-20 space-x-7">
+  <div >
+  <img class="w-28 	animate1"  src={full_left} alt="closed left hand"/>
   </div>
   <div>
-  <img class="w-40 scale-75" src={full_right} alt="closed left hand"/>
+  <img class="w-28   animate2 " src={full_right} alt="closed left hand"/>
   </div>
   </div>
 {:else}
  <div class="flex justify-center items-center flex-col">
   
-<div class="m-5 absolute bottom-24">
+<div class="m-5 portrait-only absolute bottom-24">
  <div class="grid grid-cols-5 ">
 <button on:blur={()=>resetClicked(1)} class="{( clicked[1] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(1)}><img class="h-40" src={one} alt="hand with one finger"/></button>
 <button on:blur={()=>resetClicked(2)}  class="{( clicked[2] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(2)}><img class="h-40" src={two} alt="hand with two fingers"/></button>
@@ -261,12 +242,23 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 <button on:blur={()=>resetClicked(5)} class="{( clicked[5] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(5)}><img class="h-40" src={five} alt="hand with five fingers"/></button>
  </div>
 </div>
+
+
+<div class="mt-20 landscape-only flex justify-center">
+  <div class="grid grid-cols-5 ">
+ <button on:blur={()=>resetClicked(1)} class="{( clicked[1] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(1)}><img class="h-40 hover:opacity-75" src={one} alt="hand with one finger"/></button>
+ <button on:blur={()=>resetClicked(2)}  class="{( clicked[2] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(2)}><img class="h-40 hover:opacity-75" src={two} alt="hand with two fingers"/></button>
+ <button on:blur={()=>resetClicked(3)} class="{( clicked[3] ?'scale-125' : 'scale-75')}"  on:click={()=>changeNumber(3)}><img class="h-40 hover:opacity-75" src={three} alt="hand with three fingers"/></button>
+ <button on:blur={()=>resetClicked(4)} class="{( clicked[4] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(4)}><img class="h-40  hover:opacity-75"src={four} alt="hand with four fingers"/></button>
+ <button on:blur={()=>resetClicked(5)} class="{( clicked[5] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(5)}><img class="h-40  hover:opacity-75"src={five} alt="hand with five fingers"/></button>
+  </div>
+ </div>
  </div>
  {/if}
 {:else}
 <!-- the first screen where you choose even or odd it pop up once -->
- 
-<div class="flex flex-row  justify-center space-x-2 mt-60">
+ <div class="flex  min-h-screen justify-center items-center ">
+<div class="flex flex-row  justify-center space-x-2 ">
   <button  class="text-white text-3xl border-2 
   bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
    from-amber-200 via-violet-600 to-sky-900 border-gray-500
@@ -276,6 +268,7 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
    from-amber-200 via-violet-600 to-sky-900 border-gray-500
     p-3 text-3xl rounded-full"  on:click={()=>changeMode("odd")}>Odd </button>
   </div>
+ </div>
 {/if}
 {/if}
 {/if}
