@@ -10,8 +10,8 @@ export let score2:number=0
 export let winner:boolean=false
 
 </script>
-<div class={( score===3 ? 'flex rounded-2xl mt-5 justify-center flex-col bg-gradient-to-r from-yellow-200 to-yellow-500 border-gray-500 border m-2' : 
-'flex rounded-2xl mt-5 justify-center flex-col border-gray-500 border m-2 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400')}>
+<div class='flex rounded-2xl mt-5 justify-center flex-col 
+border-gray-500 border m-2 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400'>
     
    
     <div class="  flex justify-center   p-2">
@@ -27,13 +27,13 @@ export let winner:boolean=false
    <div class="flex flex-row justify-center space-x-6">
    
     <div class=" flex justify-center items-center flex-row space-x-1 ">
-        <p class="text-gray-600 font-light italic" >your score: <span class="text-rose-700 font-medium"> {myscore} </span></p>
-  <p class={(score-score2 >0 ?'text-white ':'text-rose-700 ')}>{score-score2 >0 ?'+':''}{score-score2}</p>
+        <p class="text-gray-900 font-light italic" >your score: <span class="text-rose-700 font-medium"> {myscore} </span></p>
+  <p class={(score-score2 >0 ?' text-green-700 font-bold':' text-red-500 font-bold ')}>{score-score2 >0 ?'+':''}{score-score2}</p>
     </div>
     <div class=" flex justify-center items-center flex-row space-x-1">
-        <p class="text-gray-600 font-light italic">{name} score: <span class="text-indigo-700 font-medium">{scoredb2}</span></p>
+        <p class="text-gray-900 font-light italic">{name} score: <span class="text-indigo-700 font-medium"> {scoredb2} </span></p>
 
-        <p class={(score2-score >0 ?'text-white ':'text-indigo-700 ')}>{score2-score >0 ?'+':''}{score2-score}</p>
+        <p class={(score2-score >0 ?'text-green-700 font-bold ':'text-red-500 font-bold ')}>{score2-score >0 ?'+':''}{score2-score}</p>
 
     </div>
 

@@ -1,4 +1,8 @@
 <script lang="ts">
-	import Slice from "$lib/slice.svelte";
+	import home from "../../images/home.webp"
 </script>
-<Slice/>
+<div class="flex justify-center">
+<p>working on it </p>
+<a href="/"><img class="w-12 scale-75" src={home} alt="home button"/></a>
+
+</div>
