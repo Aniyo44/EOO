@@ -32,12 +32,12 @@ export class MySubClassedDexie extends Dexie {
         if (count === 0) {
           // Add initial data to the scores table
           await this.scores.bulkAdd([
-            { score: 80, name: 'Pebble' },
-            { score: 30, name: 'Olaf' },
-            { score: 70, name: 'Flynn' },
-            { score: 10, name: 'Mushu' },
-            { score: 70, name: 'Elsa' },
-            {score:50,name:"You"}
+            { score: 9, name: 'Pebble' },
+            { score: 3, name: 'Olaf' },
+            { score: 8, name: 'Flynn' },
+            { score: 7, name: 'Mushu' },
+            { score: 5, name: 'Elsa' },
+            {score:0,name:"You"}
 
           ]);
         }
