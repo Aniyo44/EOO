@@ -148,19 +148,20 @@ function checkandupdate(){
         
         if(scoredb2!=0){
 
-        scoredb2=scoredb2-sum
-        if(scoredb2 >0){ 
+        scoredb2=Math.max(0, scoredb2 - sum)
+        
         db.scores.update(randomId, { score: scoredb2 })
-        }
+        
         }
     }else{
         sum=score2-score
         if(myscore!=0){
 
-        myscore=myscore-sum
-        if(myscore>0){
+        myscore=Math.max(0,myscore-sum)
+        
+        
         db.scores.update(6, { score: myscore})
-        }
+        
         }
         scoredb2=scoredb2+sum
         db.scores.update(randomId, { score: scoredb2 })
