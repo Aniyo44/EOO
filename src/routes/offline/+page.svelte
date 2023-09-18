@@ -18,9 +18,9 @@
    import three_right from "../../images/right-three.webp"
    import four_right from "../../images/right-four.webp"
    import five_right from "../../images/right-five.webp"
-   import happy from "../../images/Goodies Face Happy.png"
-   import sad from "../../images/Goodies Face Sad.png"
+   
 	import Final from "$lib/final.svelte";
+  import home from "../../images/home.webp"
 
 
 
@@ -184,11 +184,13 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
  from-gray-300 via-fuchsia-600 to-orange-600 border-gray-500
   p-2 rounded-full"on:click={restart}>Restart</button>
   </div>
-  <div class="justify-center flex">
+  <div class="justify-center flex ">
   <a href="/records" style="background: var(--custom-gradient);" class="text-2xl mt-2 text-white
  border-2 
  border-gray-500
   p-2 rounded-full ">records</a>
+  </div>
+  <div class="flex justify-center">   <a href="/"><img class="w-12 scale-75" src={home} alt="home button"/></a>
   </div>
   </div>
 

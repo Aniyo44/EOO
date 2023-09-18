@@ -10,7 +10,8 @@ export let score2:number=0
 export let winner:boolean=false
 
 </script>
-<div class="flex rounded-2xl mt-5 justify-center flex-col bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 border-gray-500 border m-2">
+<div class={( score===3 ? 'flex rounded-2xl mt-5 justify-center flex-col bg-gradient-to-r from-yellow-200 to-yellow-500 border-gray-500 border m-2' : 
+'flex rounded-2xl mt-5 justify-center flex-col border-gray-500 border m-2 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400')}>
     
    
     <div class="  flex justify-center   p-2">
@@ -39,7 +40,7 @@ export let winner:boolean=false
    </div>
    <div class="flex justify-center m-2">
    {#if winner}
-   <img src={happy} class="w-30" alt="happy goodie"/>
+   <img src={happy} class="w-28" alt="happy goodie"/>
      {:else}
      <img src={sad} class="w-28" alt="sad goodie"/>
      {/if}

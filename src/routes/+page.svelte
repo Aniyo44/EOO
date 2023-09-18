@@ -36,7 +36,7 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 <a href="/records" style="background: var(--custom-gradient);" class="mt-10 text-2xl text-white
  border-2 
  border-gray-500
-  p-1 rounded-full">records</a>
+  p-2 rounded-full">records</a>
   <div class="absolute bottom-1  right-1/2 translate-x-1/2 ">
     <div>
       <Install/>
