@@ -11,10 +11,8 @@
 </script>
 
 
-<div class="flex mt-2 ">
-    <div class=" w-full  
-    h-20 rounded 
-     border-gray-600 border-x border-t bg-gradient-to-r from-red-400 via-gray-300 to-blue-500 flex m-5 mb-0"> 
+<div class="flex mt-2  ">
+    <div class={( showRound ?' w-full h-20 rounded border-gray-600 border-x border-t bg-gradient-to-r from-red-400 via-gray-300 to-blue-500 flex m-5 mb-0':' w-full h-20 rounded border-gray-600 border-x border-t bg-gradient-to-r from-red-400 via-gray-300 to-blue-500 flex m-5 mb-5')}> 
       <div class="text-rose-700  flex-col flex justify-center text-center basis-1/4">
         <p class="text-2xl ml-1 font-bold">{blue_side}<p>
      <p class="italic text-1xl font-extrabold text-white"> {choice}<p/></div>

@@ -14,7 +14,7 @@ $: if ($scores) {
 
 </script>
 <div class="flex justify-center mt-5 ">
-<div class="  border border-gray-600 w-fit p-2 bg-gradient-to-r from-red-400 via-gray-300 to-blue-500 ">
+<div class="  border border-gray-600 text-3xl w-fit p-2 bg-gradient-to-r from-red-400 via-gray-300 to-blue-500 ">
 <ul>
 {#if sortedScores.length > 0}
   {#each sortedScores as score, index (score.id)}
@@ -23,7 +23,7 @@ $: if ($scores) {
 
       <p class="inline text-white">{score.score}</p>
 
-      <p class="inline text-yellow-900 p-1">{score.name}</p>
+      <p class={(score.score<10 ?"inline text-yellow-900 p-1 ml-4 ":"inline text-yellow-900 p-1 ")}>{score.name}</p>
 
   </li>
   {/each}

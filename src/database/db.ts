@@ -7,8 +7,12 @@ export interface Scores {
 }
 export interface Records {
   id?: number;
-  blue: number;
-  red:number
+  name1:string;
+  name2:string;
+  score1: number;
+  score2:number
+  mode:string
+  otherMode:string
   
 }
 
@@ -23,7 +27,7 @@ export class MySubClassedDexie extends Dexie {
     super('EOO');
     this.version(1).stores({
      scores: '++id,score,name' ,
-      records:'++id,blue,red'
+      records:'++id,name1,name2,score1,score2,mode,otherMode'
     });
     // Add the populate event handler to populate the scores table
     this.on('populate', async () => {

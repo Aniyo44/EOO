@@ -134,8 +134,25 @@ function restart(){
 
 
 }
+async function addRecords(){
+  try{
+    const data = await db.records.add({
+        name1: myname,
+        name2: name,
+        score1:score,
+        score2:score2,
+        mode:modeChoice,
+        otherMode:otherChoice
+      });
+  }
+  catch(err){
+    console.log(err)
+  }
+
+}
 
 function checkandupdate(){
+  addRecords()
     let sum=0
     if (score==3){
       winner=true
