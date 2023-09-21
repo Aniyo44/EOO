@@ -225,7 +225,15 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 
 
 
-    <div class="flex justify-center flex-row items-center mt-20 space-x-7"> 
+    <div class="flex justify-center flex-row portrait-only items-center mt-20 space-x-7"> 
+      <div>
+          <img class="w-28"  src={leftImages[numberChoice-1]} alt="left hand result"/>
+        </div>
+      <div>
+          <img class="w-28" src={rightImages[random-1]} alt="right hand result"/>
+        </div>
+    </div>
+    <div class="flex justify-center flex-row landscape-only items-center mt-32 space-x-7"> 
       <div>
           <img class="w-28"  src={leftImages[numberChoice-1]} alt="left hand result"/>
         </div>
@@ -247,7 +255,7 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 
  <Board blue_side={myname} choice={modeChoice} round={round} otherChoice={otherChoice} score={score} score2={score2} red_side={name}/>
  {#if thumbsDonw}
- <div class="flex justify-center flex-row items-center mt-20 space-x-7">
+ <div class="flex justify-center portrait-only  flex-row items-center mt-20 space-x-7">
   <div >
   <img class="w-28 	animate1"  src={full_left} alt="closed left hand"/>
   </div>
@@ -255,6 +263,14 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
   <img class="w-28   animate2 " src={full_right} alt="closed left hand"/>
   </div>
   </div>
+  <div class="flex justify-center landscape-only flex-row items-center mt-32 space-x-7">
+    <div >
+    <img class="w-28 	animate1"  src={full_left} alt="closed left hand"/>
+    </div>
+    <div>
+    <img class="w-28   animate2 " src={full_right} alt="closed left hand"/>
+    </div>
+    </div>
 {:else}
  <div class="flex justify-center items-center flex-col">
   
@@ -269,7 +285,7 @@ bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
 </div>
 
 
-<div class="mt-20 landscape-only flex justify-center">
+<div class="mt-52 landscape-only flex justify-center">
   <div class="grid grid-cols-5 ">
  <button on:blur={()=>resetClicked(1)} class="{( clicked[1] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(1)}><img class="h-40 hover:opacity-75" src={one} alt="hand with one finger"/></button>
  <button on:blur={()=>resetClicked(2)}  class="{( clicked[2] ?'scale-125' : 'scale-75')}" on:click={()=>changeNumber(2)}><img class="h-40 hover:opacity-75" src={two} alt="hand with two fingers"/></button>
