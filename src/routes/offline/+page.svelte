@@ -150,8 +150,8 @@ async function addRecords(){
   }
 
 }
-
 function checkandupdate(){
+  numberScreen=false
   addRecords()
     let sum=0
     if (score==3){
@@ -160,7 +160,6 @@ function checkandupdate(){
         sum=score-score2
 
         myscore=myscore+sum
-        console.log(myscore)
         db.scores.update(6, { score: myscore})
         
         if(scoredb2!=0){
