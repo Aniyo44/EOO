@@ -1,25 +1,11 @@
-<script>
-    import Just from "$lib/just.svelte";
-    import home from "../../images/home.webp"
-    import { db } from "../../database/db";
-    import { liveQuery } from "dexie";
-    import Board from "$lib/board.svelte";
-    let records = liveQuery(
-      () => db.records.toArray()
-    );
+<div class="flex justify-center min-h-screen items-center space-x-2 ">
 
-</script>
-<Just/>
-<div class="flex justify-center">   
-<a href="/"><img class="w-12 scale-75" src={home} alt="home button"/></a>
+    <a href="records/offline" class="text-white text-3xl border-2 
+bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
+ from-amber-200 via-violet-600 to-sky-900 border-gray-500
+  p-3 rounded-full">Offline</a>
+<a href="records/online" class="text-white border-2 
+bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
+ from-amber-200 via-violet-600 to-sky-900 border-gray-500
+  p-3 text-3xl rounded-full">Online</a>
 </div>
-        {#if $records}
-          {#each $records as record (record.id)}
-        
-          <Board  showRound={false}  blue_side={record.name1} red_side={record.name2} score={record.score1} 
-          score2={record.score2} choice={record.mode} otherChoice={record.otherMode}  />
-          
-          {/each}
-        {/if}
-      
-
