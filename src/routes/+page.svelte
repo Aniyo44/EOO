@@ -18,9 +18,7 @@ async function fetch(){
 
 }
 
-function reveal(){
-    show=true
-}
+
 fetch()
 
 </script>
@@ -38,27 +36,18 @@ fetch()
    to-gray-900 rounded-3xl p-4 text-3xl" >your local score:<span class="text-rose-700 font-medium">{myscore}</span>  </p>
 </div>
 
-<div class="flex  min-h-screen justify-center items-center  ">
- 
-<div class="flex flex-row space-x-2 ">
-<a href="/offline" class="text-white text-3xl border-2 
-bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
- from-amber-200 via-violet-600 to-sky-900 border-gray-500
-  p-3 rounded-full">Offline</a>
-<a href="/online" class="text-white border-2 
-bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]
- from-amber-200 via-violet-600 to-sky-900 border-gray-500
-  p-3 text-3xl rounded-full">Online</a>
-</div>
-</div>
+
 
 {:else}
 <div class="flex  justify-center mt-5"><img class="w-30 h-36" src={logo} alt="even or odd logo"/>
 </div>
-<button on:click={reveal}  class="text-5xl text-white border-2 
+<button  class="text-5xl text-white border-2 
 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
  from-gray-300 via-fuchsia-600 to-orange-600 border-gray-500 mt-7
-  p-3 rounded-full">PLAY</button>
+  p-3 rounded-full">
+<a href="/offline">PLAY</a>
+
+</button>
 <a href="/records" style="background: var(--custom-gradient);" class="mt-10 text-3xl md:text-4xl text-white
  border-2 
  border-gray-500
